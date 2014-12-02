@@ -1,18 +1,21 @@
-Ball b;    //declare new object
+Ball[] b=new Ball[100];    //declare new object
 
 
 void setup() {
-  size(800, 600);
-  b = new Ball();    //initialize ball
+  size(800, 600); 
+  for (int i=0; i< b.length; i++) {
+    b[i] = new Ball();    //initialize ball
+  }
 }
 
 void draw() {
   background(0);
-  b.move();
-  b.bounce();
-  b.display();
+  for (int i=0; i< b.length; i++) {
+    b[i].move();
+    b[i].bounce();
+    b[i].display();
+  }
 }
-
 class Ball {
   //properties of Ball class
   float sz;
@@ -41,3 +44,4 @@ class Ball {
     }
   }
 }
+
