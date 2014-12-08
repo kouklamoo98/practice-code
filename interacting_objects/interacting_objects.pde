@@ -8,9 +8,7 @@ void setup() {
 
 void draw() {
   background(0);
-  for (int i = 0); 
-  i < bouncie.length; 
-  i++) {
+  for (int i = 0; i < bouncie.length; i++) {
     bouncie[i].display();
     bouncie[i].move();
     bouncie[i].wallBounce();
@@ -39,8 +37,7 @@ class Bounca {
     ellipse(loc.x, loc.y, sz, sz);
   }
 
-  void move (); 
-  {
+  void move() {
     loc.add(vel);
   }
 
@@ -53,5 +50,12 @@ class Bounca {
     }
   }
 
-void collideWith( Bounca someOtherBall){
-  if (loc
+  void collideWith(Bounca someOtherBall) {
+    if (loc.dist(someOtherBall.loc)< sz/2 + someOtherBall.sz/2) {
+      vel = PVector.sub(loc, someOtherBall.loc);
+      vel.normalize();
+      vel.setMag(speed);
+    }
+  }
+}
+
